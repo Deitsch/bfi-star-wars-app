@@ -3,7 +3,7 @@ import 'package:logging/logging.dart';
 import 'package:star_wars_app/planet_detail_page.dart';
 import 'package:star_wars_app/logger.dart';
 import 'package:star_wars_app/models/planet.dart';
-import 'package:star_wars_app/tab_page.dart';
+import 'package:star_wars_app/planet_page.dart';
 
 final log = Logger('MyApp');
 
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
       ),
       routes: {
-        '/': (context) => const TabPage(),
+        '/': (context) => const PlanetPage(),
         '/planetDetail': (context) {
           final planet = ModalRoute.of(context)!.settings.arguments as Planet;
           return PlanetDetailPage(planet: planet);
