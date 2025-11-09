@@ -58,14 +58,23 @@ class _PlanetPageState extends State<PlanetPage> {
       margin: const EdgeInsets.symmetric(vertical: 8),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       elevation: 4,
-      child: ListTile(
-        title: Text(
-          planet.name,
-          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        subtitle: Padding(
-          padding: const EdgeInsets.only(top: 8.0),
-          child: _buildPlanetDetails(planet),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(16),
+          onTap: () {
+            Navigator.pushNamed(context, '/planetDetail', arguments: planet);
+          },
+          child: ListTile(
+            title: Text(
+              planet.name,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            subtitle: Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: _buildPlanetDetails(planet),
+            ),
+          ),
         ),
       ),
     );

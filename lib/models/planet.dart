@@ -4,6 +4,10 @@ class Planet {
   final String terrain;
   final String gravity;
   final String population;
+  final String rotationPeriod;
+  final String orbitalPeriod;
+  final String diameter;
+  final String surfaceWater;
 
   Planet({
     required this.name,
@@ -11,6 +15,10 @@ class Planet {
     required this.terrain,
     required this.gravity,
     required this.population,
+    required this.rotationPeriod,
+    required this.orbitalPeriod,
+    required this.diameter,
+    required this.surfaceWater,
   });
 
   factory Planet.fromJson(Map<String, dynamic> json) {
@@ -20,6 +28,10 @@ class Planet {
       terrain: json['terrain'] ?? 'Unknown',
       gravity: json['gravity'] ?? 'Unknown',
       population: json['population'] ?? 'Unknown',
+      rotationPeriod: json['rotation_period'] ?? 'Unknown',
+      orbitalPeriod: json['orbital_period'] ?? 'Unknown',
+      diameter: json['diameter'] ?? 'Unknown',
+      surfaceWater: json['surface_water'] ?? 'Unknown',
     );
   }
 }

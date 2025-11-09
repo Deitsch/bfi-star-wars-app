@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
+import 'package:star_wars_app/planet_detail_page.dart';
 import 'package:star_wars_app/logger.dart';
+import 'package:star_wars_app/models/planet.dart';
 import 'package:star_wars_app/tab_page.dart';
 
 final log = Logger('MyApp');
@@ -20,7 +22,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
       ),
-      home: const TabPage(),
+      routes: {
+        '/': (context) => const TabPage(),
+        '/planetDetail': (context) {
+          final planet = ModalRoute.of(context)!.settings.arguments as Planet;
+          return PlanetDetailPage(planet: planet);
+        },
+      },
     );
   }
 }
