@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:logging/logging.dart';
+import 'package:star_wars_app/logger.dart';
 import 'package:star_wars_app/tab_page.dart';
 
+final log = Logger('MyApp');
+
 void main() {
+  LoggingService().setupLogging();
   runApp(const MyApp());
 }
 

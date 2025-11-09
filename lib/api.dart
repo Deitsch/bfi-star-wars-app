@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:star_wars_app/main.dart';
 import 'package:star_wars_app/models/planet.dart';
 
 class StarWarsApi {
@@ -11,8 +12,10 @@ class StarWarsApi {
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
       final List<dynamic> results = data['results'];
+      log.fine("Fetch Planets success");
       return results.map((e) => Planet.fromJson(e)).toList();
     } else {
+      log.fine("Fetch Planets failed");
       throw Exception(
         'Failed to load planets (status: ${response.statusCode})',
       );
